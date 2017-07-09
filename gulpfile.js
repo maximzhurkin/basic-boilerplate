@@ -1,3 +1,5 @@
+var projectName = 'project';
+
 var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	environments = require('gulp-environments'),
@@ -27,7 +29,7 @@ gulp.task('json', function() {
 	return gulp.src('./src/yaml/**/*.yml')
 		.pipe(plumber())
 		.pipe(yaml())
-		.pipe(gulp.dest('./dist/assets/json/'))
+		.pipe(gulp.dest('./dist/templates/' + projectName + '/assets/json/'))
 		.pipe(browserSync.stream({ match: '**/*.json' }));
 });
 
@@ -58,7 +60,7 @@ gulp.task('js', function() {
 			mangle: true
 		})))
 		.pipe(environments.development(sourcemaps.write()))
-		.pipe(gulp.dest('./dist/assets/scripts/'))
+		.pipe(gulp.dest('./dist/templates/' + projectName + '/assets/scripts/'))
 		.pipe(browserSync.stream({ match: '**/*.js' }));
 });
 
@@ -70,7 +72,7 @@ gulp.task('css', function() {
 		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ios >= 7','firefox >=4','safari >=7','IE >=8','android >=2'] }))
 		.pipe(environments.production(csso()))
 		.pipe(environments.development(sourcemaps.write()))
-		.pipe(gulp.dest('./dist/assets/styles/'))
+		.pipe(gulp.dest('./dist/templates/' + projectName + '/assets/styles/'))
 		.pipe(browserSync.stream({ match: '**/*.css' }));
 });
 

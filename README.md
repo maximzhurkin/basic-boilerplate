@@ -16,6 +16,13 @@ npm install
 bower install
 ```
 
+## Info
+Rename 'project' in files:
+- /.gitignore
+- /gulpfile.js
+- /src/pug/sections/head.pug
+- /src/pug/sections/footer.pug
+
 ## Start
 You can also pass a command line flag --env to set it:
 
