@@ -14,12 +14,15 @@ var gulp = require('gulp'),
 	csso = require('gulp-csso'),
 	autoprefixer = require('gulp-autoprefixer'),
 	sourcemaps = require('gulp-sourcemaps'),
+	stripDebug = require('gulp-strip-debug'),
+	mocks = require('./mocks.js'),
 	browserSync = require('browser-sync').create();
 
 gulp.task('serve', function() {
 	browserSync.init({
 		server: { // or proxy: 'stoner-html.dev:8888',
-			baseDir: "./dist"
+			baseDir: "./dist",
+			middleware: mocks
 		},
 		notify: false
 	});
@@ -59,6 +62,7 @@ gulp.task('js', function() {
 			preserveComments: 'license',
 			mangle: true
 		})))
+		.pipe(environments.production(stripDebug()))
 		.pipe(environments.development(sourcemaps.write()))
 		.pipe(gulp.dest('./dist/templates/' + projectName + '/assets/scripts/'))
 		.pipe(browserSync.stream({ match: '**/*.js' }));
