@@ -2,7 +2,7 @@
 node_modules/
 bower_components/
 node_modules/
-dist/templates/project/*.html
+dist/*.html
 dist/templates/project/assets/scripts
 dist/templates/project/assets/json
 dist/templates/project/assets/styles
