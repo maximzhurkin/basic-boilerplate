@@ -22,6 +22,7 @@ Rename 'project' in files:
 - /gulpfile.js
 - /src/pug/sections/head.pug
 - /src/pug/sections/footer.pug
+- /src/stylus/core/config.styl
 
 ## Start
 You can also pass a command line flag --env to set it:
