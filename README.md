@@ -20,8 +20,7 @@ bower install
 Rename 'project' in files:
 - /.gitignore
 - /gulpfile.js
-- /src/pug/sections/head.pug
-- /src/pug/sections/footer.pug
+- /src/pug/core/config.pug
 - /src/stylus/core/config.styl
 
 ## Start
