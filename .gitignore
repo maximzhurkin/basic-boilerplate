@@ -2,6 +2,7 @@
 node_modules/
 bower_components/
 node_modules/
+src/js/app.js
 dist/*.html
 dist/templates/project/assets/scripts
 dist/templates/project/assets/json
