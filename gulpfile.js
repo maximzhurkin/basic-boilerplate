@@ -98,4 +98,11 @@ gulp.task('watch', function () {
 	});
 });
 
-gulp.task('default', ['json', 'html', 'coffee', 'js', 'css', 'watch', 'serve']);
+gulp.task('main', ['coffee'], function() {
+	gulp.start('html');
+	gulp.start('js');
+	gulp.start('css');
+	gulp.start('json');
+});
+
+gulp.task('default', ['main', 'watch', 'serve']);
