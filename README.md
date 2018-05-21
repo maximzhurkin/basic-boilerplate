@@ -1,4 +1,4 @@
-# stoner-html.dev
+# StonerHtml
 
 Boilerplate with gulp.
 
@@ -20,6 +20,7 @@ bower install
 Rename 'project' in files:
 - /.gitignore
 - /gulpfile.js
+- /dist/templates/project
 - /src/pug/core/config.pug
 - /src/stylus/core/config.styl
 
