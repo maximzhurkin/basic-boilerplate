@@ -1,17 +1,12 @@
 include core/config.pug
+- var heading = "Главная";
+- var breadcrumbs = [];
+- breadcrumbs.push({title: "Главная", url: "/"});
 
 doctype html
 html(lang='ru')
 	head
-		title Project
 		include sections/head.pug
 	body
-		section.hello
-			.hello__container
-				.hello__middle
-					.hello__box
-						img.hello__icon(src=path_images+'favicons/apple-touch-icon-57x57.png', alt='')
-						h1.hello__heading Hello
-						.hello__description
-							p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		include sections/hello.pug
 		include sections/footer.pug
