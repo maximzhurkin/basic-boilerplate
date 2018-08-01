@@ -19,6 +19,8 @@
     "reset-stylus": "*",
     "jquery_lazyload": "jquery.lazyload#^1.9.7",
     "matchHeight": "^0.7.2",
-    "owl.carousel": "^2.2.1"
+    "owl.carousel": "^2.2.1",
+    "jquery-validation": "^1.17.0",
+    "mobile-detect": "^1.4.2"
   }
 }
