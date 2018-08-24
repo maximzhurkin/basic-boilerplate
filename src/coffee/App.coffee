@@ -1,14 +1,17 @@
 App = do ->
-	isTouch = () ->
+
+	addTouchClass = () ->
 		md = new MobileDetect(window.navigator.userAgent)
 
 		if md.mobile()
-			return true
+			$('html').addClass 'touch'
 		else
-			return false
+			$('html').addClass 'no-touch'
+		return
 
 	init = () ->
-		if isTouch then $('html').addClass 'no-touch'
+		addTouchClass()
+
 		return
 
 	{
