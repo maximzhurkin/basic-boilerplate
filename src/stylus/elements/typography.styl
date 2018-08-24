@@ -1,0 +1,107 @@
+.typography
+	h1, h2, h3, h4, h5, h6
+		font-family font_heading
+	h1, h2, h3, h4, h5, h6, strong
+		font-weight 700
+	p, ul, ol, blockquote, pre, td, th, label
+		margin-bottom 1.5em
+		font-size 1em
+		line-height 1.5em
+	h1
+		margin-bottom 1em
+		font-size 2.75em
+		line-height 1em
+	h2
+		margin-bottom 1.09em
+		font-size 1.375em
+		line-height 1.09em
+	h3
+		margin-bottom 1.2em
+		font-size 1.25em
+		line-height 1.2em
+	h4
+		margin-bottom 1.33em
+		font-size 1.125em
+		line-height 1.33em
+	h5
+		margin-bottom 1.42em
+		font-size 1.0625em
+		line-height 1.42em
+	h6
+		margin-bottom 1.5em
+		font-size 1em
+		line-height 1.5em
+	small
+		margin-bottom 1.714em
+		font-size 0.875em
+		line-height 1.714em
+	blockquote
+		padding 0 0 0 1.5em
+		border-left 2px solid #eee
+	.table
+		width 100%
+		overflow-y auto
+	table
+		margin-bottom 30px
+		width 100%
+		thead
+			background-color rgba(#000, .1)
+		thead tr td,
+		th
+			font-weight 700
+		tr
+			td,
+			th
+				padding 10px
+				border 1px solid rgba(#000, .1)
+				text-align left
+		tbody
+			tr:nth-child(even)
+				background-color rgba(#000, .04)
+	ol, ul
+		li
+			margin-bottom 0.5em
+			padding 0 0 0 1.5em
+			position relative
+	ol
+		counter-reset counter
+		li
+			&:before
+				position absolute
+				display block
+				top 4px
+				left 0
+				width 16px
+				height 16px
+				line-height 16px
+				color #fff
+				background #000
+				text-align center
+				content counter(counter)
+				counter-increment counter
+				font-size 0.7em
+				border-radius 50%
+	ul
+		li
+			&:before
+				content ''
+				position absolute
+				display block
+				top 8px
+				left 0
+				width 8px
+				height 8px
+				background #000
+				border-radius 50%
+	p
+		a
+			color color_indigo
+			text-decoration none
+			border-bottom 1px solid rgba(color_indigo, .25)
+			transition border-color .25s ease-in-out
+			.no-touch &:hover
+				border-color color_indigo
+
+@media screen and (max-width: display_mobile_landscape)
+	.typography
+		font-size (14 / 16em)

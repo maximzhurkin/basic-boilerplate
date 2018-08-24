@@ -1,0 +1,33 @@
+.button
+	padding-left (gap_laptop / 2)
+	padding-right (gap_laptop / 2)
+	cursor pointer
+	position relative
+	display inline-block
+	width auto
+	height 40px
+	line-height 40px
+	font-size (14 / 16em)
+	font-weight 700
+	text-decoration none
+	text-transform uppercase
+	text-align center
+	color #000000
+	background-color transparent
+	border 1px solid #000000
+	border-radius 2px
+	user-select none
+	transition border-color .25s ease-in-out, background-color .25s ease-in-out, color .25s ease-in-out
+	.no-touch &:hover
+		color #ffffff
+		background-color #000000
+	&--fluid
+		width 100%
+		display block
+	&--indigo
+		color color_indigo
+		border-color color_indigo
+		.no-touch &:hover
+			background-color color_indigo
+button.button
+	line-height 38px
