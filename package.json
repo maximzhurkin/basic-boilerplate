@@ -16,6 +16,7 @@
     "gulp-coffeescript-concat": "^0.1.3",
     "gulp-csso": "^2.0.0",
     "gulp-environments": "^0.1.1",
+    "gulp-htmlhint": "^2.2.1",
     "gulp-htmlmin": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.2.0",
@@ -25,9 +26,7 @@
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.0.1",
     "gulp-watch": "^4.3.11",
-    "gulp-yaml": "^1.0.1"
-  },
-  "dependencies": {
+    "gulp-yaml": "^1.0.1",
     "browser-sync": "^2.24.4",
     "gulp-coffee": "^2.3.5",
     "gulp-plumber": "^1.2.0",

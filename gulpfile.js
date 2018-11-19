@@ -14,6 +14,7 @@ var gulp = require('gulp'),
 	csso = require('gulp-csso'),
 	autoprefixer = require('gulp-autoprefixer'),
 	sourcemaps = require('gulp-sourcemaps'),
+	htmlhint = require('gulp-htmlhint'),
 	stripDebug = require('gulp-strip-debug'),
 	mocks = require('./mocks.js'),
 	browserSync = require('browser-sync').create();
@@ -42,6 +43,8 @@ gulp.task('html', function() {
 		.pipe(pug({
 			pretty: '\t' // tabs
 		}))
+		.pipe(environments.development(htmlhint('./.htmlhintrc')))
+		.pipe(environments.development(htmlhint.reporter()))
 		.pipe(gulp.dest('./dist/'))
 		.pipe(browserSync.reload({ stream: true }));
 });
