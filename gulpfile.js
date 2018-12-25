@@ -1,4 +1,4 @@
-var projectName = 'project';
+var buildPath = './dist/templates/site/assets/';
 
 var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
@@ -21,7 +21,7 @@ var gulp = require('gulp'),
 
 gulp.task('serve', function() {
 	browserSync.init({
-		server: { // or proxy: 'stoner-html.dev:8888',
+		server: {
 			baseDir: "./dist",
 			middleware: mocks
 		},
@@ -33,20 +33,32 @@ gulp.task('json', function() {
 	return gulp.src('./src/yaml/**/*.yml')
 		.pipe(plumber())
 		.pipe(yaml())
-		.pipe(gulp.dest('./dist/templates/' + projectName + '/assets/json/'))
+		.pipe(gulp.dest(buildPath + 'json/'))
 		.pipe(browserSync.stream({ match: '**/*.json' }));
 });
 
 gulp.task('html', function() {
-	return gulp.src('./src/pug/*.pug')
+	return gulp.src(['./src/pug/*.pug', '!./src/pug/templates/*.pug'])
 		.pipe(plumber())
 		.pipe(pug({
-			pretty: '\t' // tabs
+			pretty: '\t'
 		}))
 		.pipe(environments.development(htmlhint('./.htmlhintrc')))
 		.pipe(environments.development(htmlhint.reporter()))
 		.pipe(gulp.dest('./dist/'))
-		.pipe(browserSync.reload({ stream: true }));
+});
+
+gulp.task('html-refresh', ['html'], function () {
+	browserSync.reload();
+});
+
+gulp.task('templates', function() {
+	return gulp.src('./src/pug/templates/*.pug')
+		.pipe(plumber())
+		.pipe(pug({
+			pretty: '\t'
+		}))
+		.pipe(gulp.dest(buildPath + 'templates/'));
 });
 
 gulp.task('coffee', function() {
@@ -67,7 +79,7 @@ gulp.task('js', function() {
 		})))
 		.pipe(environments.production(stripDebug()))
 		.pipe(environments.development(sourcemaps.write()))
-		.pipe(gulp.dest('./dist/templates/' + projectName + '/assets/scripts/'))
+		.pipe(gulp.dest(buildPath + 'scripts/'))
 		.pipe(browserSync.stream({ match: '**/*.js' }));
 });
 
@@ -79,7 +91,7 @@ gulp.task('css', function() {
 		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ios >= 7','firefox >=4','safari >=7','IE >=8','android >=2'] }))
 		.pipe(environments.production(csso()))
 		.pipe(environments.development(sourcemaps.write()))
-		.pipe(gulp.dest('./dist/templates/' + projectName + '/assets/styles/'))
+		.pipe(gulp.dest(buildPath + 'styles/'))
 		.pipe(browserSync.stream({ match: '**/*.css' }));
 });
 
@@ -96,13 +108,14 @@ gulp.task('watch', function () {
 	watch(['./src/stylus/**/*.styl'], function() {
 		gulp.start('css');
 	});
-	watch(['./src/pug/**/*.pug'], function() {
-		gulp.start('html');
+	watch(['./src/pug/**/*.pug', '!./src/pug/templates/*.pug'], function() {
+		gulp.start('html-refresh');
 	});
 });
 
 gulp.task('main', ['coffee'], function() {
 	gulp.start('html');
+	gulp.start('templates');
 	gulp.start('js');
 	gulp.start('css');
 	gulp.start('json');
