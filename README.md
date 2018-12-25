@@ -1,11 +1,11 @@
-# StonerHtml
+# Stoner Boilerplate
 
-Boilerplate with gulp.
+Boilerplate with gulp. Pug/Stylus/Coffee/Yaml
 
 ## Install
 1. In project folder run in console
 ```
-git clone https://github.com/maximzhurkin/stoner-html.git .
+git clone https://github.com/maximzhurkin/stoner-boilerplate.git . && rm -rf .git
 ```
 2. Install node modules
 ```
@@ -15,14 +15,6 @@ npm install
 ```
 bower install
 ```
-
-## Info
-Rename 'project' in files:
-- /.gitignore
-- /gulpfile.js
-- /dist/templates/project
-- /src/pug/core/config.pug
-- /src/stylus/core/config.styl
 
 ## Start
 You can also pass a command line flag --env to set it:
