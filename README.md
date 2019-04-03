@@ -7,13 +7,9 @@ Boilerplate with gulp. Pug/Stylus/Coffee/Yaml
 ```
 git clone https://github.com/maximzhurkin/stoner-boilerplate.git . && rm -rf .git
 ```
-2. Install node modules
+2. Install node modules and bower components
 ```
-npm install
-```
-3. Install bower components
-```
-bower install
+npm install && bower install
 ```
 
 ## Start
