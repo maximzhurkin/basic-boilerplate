@@ -108,6 +108,9 @@ gulp.task('watch', function () {
 	watch(['./src/stylus/**/*.styl'], function() {
 		gulp.start('css');
 	});
+	watch(['./src/pug/templates/*.pug'], function() {
+		gulp.start('templates');
+	});
 	watch(['./src/pug/**/*.pug', '!./src/pug/templates/*.pug'], function() {
 		gulp.start('html-refresh');
 	});
