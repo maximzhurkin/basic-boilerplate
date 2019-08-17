@@ -8,3 +8,4 @@ dist/templates/site/assets/scripts
 dist/templates/site/assets/json
 dist/templates/site/assets/styles
 dist/templates/site/assets/templates
+package-lock.json
