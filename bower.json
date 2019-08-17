@@ -16,7 +16,6 @@
   ],
   "dependencies": {
     "jquery": "^3.1.1",
-    "reset-stylus": "*",
     "jquery_lazyload": "jquery.lazyload#^1.9.7",
     "matchHeight": "^0.7.2",
     "owl.carousel": "^2.2.1",
