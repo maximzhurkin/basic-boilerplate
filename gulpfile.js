@@ -19,6 +19,12 @@ var gulp = require('gulp'),
 	mocks = require('./mocks.js'),
 	browserSync = require('browser-sync').create();
 
+gulp.task('export', function() {
+	return gulp
+		.src('./dist/templates/site/assets/**/*')
+		.pipe(gulp.dest('../backend/dist/templates/site/assets/'));
+});
+
 gulp.task('serve', function() {
 	browserSync.init({
 		server: {
@@ -116,7 +122,7 @@ gulp.task('watch', function () {
 	});
 });
 
-gulp.task('main', ['coffee'], function() {
+gulp.task('build', ['coffee'], function() {
 	gulp.start('html');
 	gulp.start('templates');
 	gulp.start('js');
@@ -124,4 +130,4 @@ gulp.task('main', ['coffee'], function() {
 	gulp.start('json');
 });
 
-gulp.task('default', ['main', 'watch', 'serve']);
+gulp.task('default', ['build', 'watch', 'serve']);
