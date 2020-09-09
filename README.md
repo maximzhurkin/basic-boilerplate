@@ -1,4 +1,4 @@
-# Stoner Boilerplate
+# Gulp Boilerplate
 
 Boilerplate with gulp. Pug/Stylus/Coffee/Yaml
 
